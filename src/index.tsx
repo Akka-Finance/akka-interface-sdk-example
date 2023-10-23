@@ -6,17 +6,41 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@mui/material";
 import theme from "./theme";
+import { WagmiConfig, configureChains, createConfig } from "wagmi";
+import { core } from "./wagmi/chains/core";
+import { publicProvider } from "wagmi/providers/public";
+import { MetaMaskConnector } from "wagmi/connectors/metaMask";
+
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [core],
+  [publicProvider()]
+);
+const config = createConfig({
+  autoConnect: true,
+  connectors: [
+    new MetaMaskConnector({
+      chains,
+      options: {
+        UNSTABLE_shimOnConnectSelectAccount: true,
+      },
+    }),
+  ],
+  publicClient,
+  webSocketPublicClient,
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>
+    <WagmiConfig config={config}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </WagmiConfig>
   </React.StrictMode>
 );
 

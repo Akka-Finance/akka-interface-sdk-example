@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AKKA, ChainId } from "@akkafinance/sdk";
 import { Box, CircularProgress, Typography } from "@mui/material";
+import GetAllowance from "../../components/GetAllowance";
 
 const Spender = () => {
   const [spenderAddress, setSpenderAddress] = useState<string | undefined>(
@@ -8,7 +9,6 @@ const Spender = () => {
   );
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
-  const [allowance, setAllowance] = useState(0);
 
   useEffect(() => {
     const akka = new AKKA({});
@@ -31,7 +31,7 @@ const Spender = () => {
         variant="h4"
         sx={{ mb: 4, textAlign: "center", wordBreak: "break-word" }}
       >
-        The code for getting tokens using AKKA SDK can be found at:
+        The code for getting spender address using AKKA SDK can be found at:
         src/pages/Spender/index.tsx
       </Typography>
 
@@ -45,6 +45,7 @@ const Spender = () => {
         ) : (
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <div>akka contract address for CORE chain: {spenderAddress}</div>
+            <GetAllowance />
           </Box>
         )}
       </Box>
