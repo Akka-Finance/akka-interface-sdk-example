@@ -17,6 +17,7 @@ const drawerWidth = 240;
 const navItems: Array<navItem> = [
   { name: "Home", path: "/" },
   { name: "Tokens", path: "tokens" },
+  { name: "Spender", path: "spender" },
 ];
 
 const Navbar = () => {
