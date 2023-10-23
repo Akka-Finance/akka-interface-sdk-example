@@ -11,14 +11,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import MyDrawer from "./MyDrawer";
 import { useNavigate } from "react-router-dom";
-import { navItem } from "./types";
+import { routes } from "../../routes";
 
 const drawerWidth = 240;
-const navItems: Array<navItem> = [
-  { name: "Home", path: "/" },
-  { name: "Tokens", path: "tokens" },
-  { name: "Spender", path: "spender" },
-];
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -56,15 +51,15 @@ const Navbar = () => {
             />
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
+            {routes.map((route) => (
               <Button
-                key={item.name}
+                key={route.name}
                 color="primary"
                 onClick={() => {
-                  navigate(item.path);
+                  navigate(route.path);
                 }}
               >
-                {item.name}
+                {route.name}
               </Button>
             ))}
           </Box>
@@ -86,10 +81,7 @@ const Navbar = () => {
             },
           }}
         >
-          <MyDrawer
-            navItems={navItems}
-            handleDrawerToggle={handleDrawerToggle}
-          />
+          <MyDrawer navItems={routes} handleDrawerToggle={handleDrawerToggle} />
         </Drawer>
       </nav>
     </>

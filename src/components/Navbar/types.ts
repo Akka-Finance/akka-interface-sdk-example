@@ -1,11 +1,7 @@
 import { MouseEventHandler } from "react";
-
-export interface navItem {
-  name: string;
-  path: string;
-}
+import { MyRoute } from "../../routes";
 
 export interface MyDrawerProps {
-  navItems: Array<navItem>;
+  navItems: Array<MyRoute>;
   handleDrawerToggle: MouseEventHandler<HTMLDivElement>;
 }

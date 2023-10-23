@@ -1,9 +1,7 @@
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import { Box, Toolbar } from "@mui/material";
-import Tokens from "./pages/Tokens";
-import Spender from "./pages/Spender";
+import { routes } from "./routes";
 
 function App() {
   return (
@@ -13,9 +11,9 @@ function App() {
         <Toolbar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tokens" element={<Tokens />} />
-          <Route path="/spender" element={<Spender />} />
+          {routes.map((route) => {
+            return <Route path={route.path} element={<route.component />} />;
+          })}
         </Routes>
       </Box>
     </>
