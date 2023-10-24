@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AKKA, ChainId } from "@akkafinance/sdk";
 import { Box, CircularProgress, Typography } from "@mui/material";
 import GetAllowance from "../../components/GetAllowance";
+import GetApproveTransaction from "../../components/GetApproveTransaction";
 
 const Spender = () => {
   const [spenderAddress, setSpenderAddress] = useState<string | undefined>(
@@ -46,6 +47,7 @@ const Spender = () => {
           <Box sx={{ display: "flex", flexDirection: "column" }}>
             <div>akka contract address for CORE chain: {spenderAddress}</div>
             <GetAllowance />
+            <GetApproveTransaction />
           </Box>
         )}
       </Box>

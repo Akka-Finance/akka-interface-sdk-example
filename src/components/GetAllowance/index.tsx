@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useAccount, useDisconnect } from "wagmi";
-import ConnectWalletButtons from "./ConnectWalletButtons";
+import ConnectWalletButtons from "../ConnectWalletButtons";
 
 const GetAllowance = () => {
   const [loading, setLoading] = useState(false);
