@@ -16,6 +16,7 @@ import {
 import { useAccount, useSendTransaction } from "wagmi";
 import ConnectWalletButtons from "../ConnectWalletButtons";
 import { toast } from "react-toastify";
+import { isAddress } from "ethers/lib/utils";
 
 const GetApproveTransaction = () => {
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,7 @@ const GetApproveTransaction = () => {
   const { sendTransactionAsync } = useSendTransaction();
 
   const handleGetApproveTransaction = () => {
-    if (!tokenAddress || !amount) return;
+    if (!isAddress(tokenAddress) || !amount) return;
 
     setData(null);
     setLoadingApproveTransactionData(true);
@@ -56,10 +57,8 @@ const GetApproveTransaction = () => {
         });
       } catch (error: any) {
         if (error.shortMessage) {
-          console.log("toastttt sm: ", error.shortMessage);
           toast(error.shortMessage);
         } else {
-          console.log("toastttt m: ", error.message);
           toast(error.message);
         }
       }
@@ -145,7 +144,7 @@ const GetApproveTransaction = () => {
         <Button
           color="success"
           variant="contained"
-          disabled={!tokenAddress}
+          disabled={!isAddress(tokenAddress)}
           onClick={handleGetApproveTransaction}
         >
           Get approve transaction

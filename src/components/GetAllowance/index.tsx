@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useAccount, useDisconnect } from "wagmi";
 import ConnectWalletButtons from "../ConnectWalletButtons";
+import { isAddress } from "ethers/lib/utils";
 
 const GetAllowance = () => {
   const [loading, setLoading] = useState(false);
@@ -29,7 +30,7 @@ const GetAllowance = () => {
   }, [address, setWalletAddress]);
 
   useEffect(() => {
-    if (!tokenAddress || !walletAddress) return;
+    if (!isAddress(tokenAddress) || !isAddress(walletAddress)) return;
 
     setLoadingAllowance(true);
     const akka = new AKKA({});
@@ -146,7 +147,7 @@ const GetAllowance = () => {
       <Box sx={{ wordBreak: "break-word" }}>
         {loadingAllowance ? (
           <CircularProgress color="secondary" />
-        ) : tokenAddress && walletAddress ? (
+        ) : isAddress(tokenAddress) && isAddress(walletAddress) ? (
           `Your allowance for the selected token is: ${allowance}`
         ) : (
           "Please select a token and fill your wallet address"
