@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { AKKA, ChainId } from "@akkafinance/sdk";
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
+import { MyBox } from "../../components/MyBox";
 import GetAllowance from "../../components/GetAllowance";
 import GetApproveTransaction from "../../components/GetApproveTransaction";
 
@@ -36,7 +37,7 @@ const Spender = () => {
         src/pages/Spender/index.tsx
       </Typography>
 
-      <Box sx={{ width: "100%", textAlign: "center" }}>
+      <MyBox sx={{ width: "100%", textAlign: "center" }}>
         {loading ? (
           <CircularProgress color="secondary" />
         ) : error ? (
@@ -44,13 +45,13 @@ const Spender = () => {
             Something went wrong! :(((
           </Typography>
         ) : (
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <MyBox sx={{ display: "flex", flexDirection: "column" }}>
             <div>akka contract address for CORE chain: {spenderAddress}</div>
             <GetAllowance />
             <GetApproveTransaction />
-          </Box>
+          </MyBox>
         )}
-      </Box>
+      </MyBox>
     </>
   );
 };

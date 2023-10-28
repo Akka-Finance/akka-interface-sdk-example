@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { AKKA, ChainId, Token } from "@akkafinance/sdk";
 import {
   Autocomplete,
-  Box,
   Button,
   CircularProgress,
   TextField,
   Typography,
 } from "@mui/material";
+import { MyBox } from "../MyBox";
 import { useAccount, useDisconnect } from "wagmi";
 import ConnectWalletButtons from "../ConnectWalletButtons";
 import { isAddress } from "ethers/lib/utils";
@@ -45,7 +45,7 @@ const GetAllowance = () => {
   }, [tokenAddress, walletAddress]);
 
   return (
-    <Box
+    <MyBox
       sx={{
         mt: 2,
         border: "1px solid black",
@@ -108,7 +108,7 @@ const GetAllowance = () => {
         loading={loading}
       />
 
-      <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+      <MyBox sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <TextField
           value={walletAddress}
           label="Wallet Address"
@@ -131,20 +131,9 @@ const GetAllowance = () => {
             Disconnect
           </Button>
         )}
-      </Box>
+      </MyBox>
 
-      {/* <Box>
-        <Button
-          color="success"
-          variant="contained"
-          onClick={handleGetAllowance}
-          disabled={loadingAllowance}
-        >
-          get allowance
-        </Button>
-      </Box> */}
-
-      <Box sx={{ wordBreak: "break-word" }}>
+      <MyBox sx={{ wordBreak: "break-word" }}>
         {loadingAllowance ? (
           <CircularProgress color="secondary" />
         ) : isAddress(tokenAddress) && isAddress(walletAddress) ? (
@@ -152,8 +141,8 @@ const GetAllowance = () => {
         ) : (
           "Please select a token and fill your wallet address"
         )}
-      </Box>
-    </Box>
+      </MyBox>
+    </MyBox>
   );
 };
 

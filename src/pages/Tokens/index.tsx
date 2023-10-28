@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AKKA, ChainId, Token } from "@akkafinance/sdk";
 import TokenList from "../../components/TokenList";
-import { Box, CircularProgress, Typography } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
+import { MyBox } from "../../components/MyBox";
 
 const Tokens = () => {
   const [tokens, setTokens] = useState<Array<Token>>([]);
@@ -34,7 +35,7 @@ const Tokens = () => {
         src/pages/Tokens/index.tsx
       </Typography>
 
-      <Box sx={{ width: "100%", textAlign: "center" }}>
+      <MyBox sx={{ width: "100%", textAlign: "center" }}>
         {loading ? (
           <CircularProgress color="secondary" />
         ) : error ? (
@@ -44,7 +45,7 @@ const Tokens = () => {
         ) : (
           <TokenList tokens={tokens} />
         )}
-      </Box>
+      </MyBox>
     </>
   );
 };

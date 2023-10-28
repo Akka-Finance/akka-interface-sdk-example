@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { TokenListProps } from "./types";
-import { Box, Card, CardContent, Pagination, Typography } from "@mui/material";
+import { Card, CardContent, Pagination, Typography } from "@mui/material";
+import { MyBox } from "../MyBox";
 
 const TokenList = ({ tokens }: TokenListProps) => {
   const [page, setPage] = useState(1);
 
   return (
-    <Box
+    <MyBox
       sx={{ display: "flex", flexDirection: "column", alignItems: "stretch" }}
     >
       <Pagination
@@ -69,7 +70,7 @@ const TokenList = ({ tokens }: TokenListProps) => {
           },
         }}
       />
-    </Box>
+    </MyBox>
   );
 };
 

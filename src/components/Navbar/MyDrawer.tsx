@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Box,
   Divider,
   List,
   ListItem,
@@ -8,6 +7,7 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
+import { MyBox } from "../MyBox";
 import { MyDrawerProps } from "./types";
 import { useNavigate } from "react-router-dom";
 
@@ -15,11 +15,10 @@ const Drawer = ({ navItems, handleDrawerToggle }: MyDrawerProps) => {
   const navigate = useNavigate();
 
   return (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+    <MyBox onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <Box
-          component="img"
-          sx={{
+        <img
+          style={{
             height: 100,
             width: 120,
           }}
@@ -42,7 +41,7 @@ const Drawer = ({ navItems, handleDrawerToggle }: MyDrawerProps) => {
           </ListItem>
         ))}
       </List>
-    </Box>
+    </MyBox>
   );
 };
 

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import {
   Autocomplete,
-  Box,
   Button,
   CircularProgress,
   TextField,
   Typography,
 } from "@mui/material";
+import { MyBox } from "../MyBox";
 import {
   AKKA,
   ApproveTransactionResponse,
@@ -66,7 +66,7 @@ const GetApproveTransaction = () => {
   };
 
   return (
-    <Box
+    <MyBox
       sx={{
         mt: 2,
         border: "1px solid black",
@@ -130,7 +130,7 @@ const GetApproveTransaction = () => {
         loading={loading}
       />
 
-      <Box sx={{ display: "flex", alignItems: "stretch", gap: 2 }}>
+      <MyBox sx={{ display: "flex", alignItems: "stretch", gap: 2 }}>
         <TextField
           label="Amount"
           type="number"
@@ -149,9 +149,11 @@ const GetApproveTransaction = () => {
         >
           Get approve transaction
         </Button>
-      </Box>
+      </MyBox>
 
-      <Box sx={{ wordBreak: "break-word", width: "100%", textAlign: "center" }}>
+      <MyBox
+        sx={{ wordBreak: "break-word", width: "100%", textAlign: "center" }}
+      >
         {loadingApproveTransactionData ? (
           <CircularProgress color="secondary" />
         ) : data ? (
@@ -169,7 +171,7 @@ const GetApproveTransaction = () => {
                 approve this transaction
               </Button>
             ) : (
-              <Box
+              <MyBox
                 sx={{
                   fontSize: "2rem",
                   fontWeight: "bold",
@@ -181,14 +183,14 @@ const GetApproveTransaction = () => {
               >
                 <div>Connect wallet first to approve this transaction!</div>
                 <ConnectWalletButtons />
-              </Box>
+              </MyBox>
             )}
           </>
         ) : (
           ""
         )}
-      </Box>
-    </Box>
+      </MyBox>
+    </MyBox>
   );
 };
 

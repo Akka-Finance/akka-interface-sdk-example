@@ -1,13 +1,13 @@
 import React from "react";
 import {
   AppBar,
-  Box,
   Button,
   Drawer,
   IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
+import { MyBox } from "../MyBox";
 import MenuIcon from "@mui/icons-material/Menu";
 import MyDrawer from "./MyDrawer";
 import { useNavigate } from "react-router-dom";
@@ -41,16 +41,15 @@ const Navbar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            <Box
-              component="img"
-              sx={{
+            <img
+              style={{
                 width: 100,
               }}
               alt="Logo"
               src="https://www.app.akka.finance/static/media/akka-colorfull1.e14f6961870541109dba75ec1c36da0e.svg"
             />
           </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
+          <MyBox sx={{ display: { xs: "none", sm: "block" } }}>
             {routes.map((route) => (
               <Button
                 key={route.name}
@@ -62,7 +61,7 @@ const Navbar = () => {
                 {route.name}
               </Button>
             ))}
-          </Box>
+          </MyBox>
         </Toolbar>
       </AppBar>
       <nav>
