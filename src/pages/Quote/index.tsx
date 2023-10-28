@@ -13,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import { MyBox } from "../../components/MyBox";
+import { toast } from "react-toastify";
 
 const Swap = () => {
   const [routeData, setRouteData] = useState<QuoteResponse | null>(null);
@@ -23,9 +24,10 @@ const Swap = () => {
   const [toTokenAddress, setToTokenAddress] = useState(
     "0x6E35fF7aC8eEB825DdB155515eF612ADcD66BCbC"
   );
+  const [amount, setAmount] = useState<string>("10000000000000000");
 
   useEffect(() => {
-    if (!fromTokenAddress || !toTokenAddress) return;
+    if (!fromTokenAddress || !toTokenAddress || !amount) return;
 
     setRouteData(null);
 
@@ -36,14 +38,17 @@ const Swap = () => {
         chainId: ChainId.CORE,
         src: fromTokenAddress,
         dst: toTokenAddress,
-        amount: "10000000000000000",
+        amount: amount,
         includeProtocols: true,
         includeTokensInfo: true,
       })
       .then((res) => {
         setRouteData(res);
+      })
+      .catch((err) => {
+        toast(err.message);
       });
-  }, [fromTokenAddress, toTokenAddress]);
+  }, [fromTokenAddress, toTokenAddress, amount]);
 
   useEffect(() => {
     const akka = new AKKA({});
@@ -129,6 +134,14 @@ const Swap = () => {
               setToTokenAddress(value?.address || "");
             }}
             sx={{ flexGrow: 1 }}
+          />
+          <TextField
+            size="small"
+            type="number"
+            value={amount}
+            onChange={(e) => {
+              setAmount(e.target.value);
+            }}
           />
         </div>
         <div
