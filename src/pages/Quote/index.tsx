@@ -66,7 +66,7 @@ const Swap = () => {
         sx={{ textAlign: "center", wordBreak: "break-word" }}
       >
         The code for getting quote using AKKA SDK can be found at:
-        src/pages/Swap/index.tsx
+        src/pages/Quote/index.tsx
       </Typography>
 
       <hr style={{ width: "100%" }} />
