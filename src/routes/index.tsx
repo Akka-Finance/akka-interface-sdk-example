@@ -1,7 +1,7 @@
 import Home from "../pages/Home";
 import Tokens from "../pages/Tokens";
 import Approve from "../pages/Approve";
-import Swap from "../pages/Swap";
+import Quote from "../pages/Quote";
 
 export interface MyRoute {
   name: string;
@@ -13,5 +13,5 @@ export const routes: Array<MyRoute> = [
   { name: "Home", path: "/", component: Home },
   { name: "Tokens", path: "tokens", component: Tokens },
   { name: "Approve", path: "approve", component: Approve },
-  { name: "Swap", path: "swap", component: Swap },
+  { name: "Quote", path: "quote", component: Quote },
 ];

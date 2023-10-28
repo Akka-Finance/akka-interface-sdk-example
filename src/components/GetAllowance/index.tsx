@@ -65,10 +65,10 @@ const GetAllowance = () => {
       <Autocomplete
         disablePortal
         options={tokens}
-        getOptionLabel={(token) => token.name}
+        getOptionLabel={(token) => token.symbol}
         renderOption={(props, item) => (
           <li {...props} key={item.address}>
-            {item.name}
+            {item.symbol}
           </li>
         )}
         renderInput={(params) => (
