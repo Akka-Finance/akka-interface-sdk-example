@@ -59,8 +59,8 @@ const Swap = () => {
   }, []);
 
   return (
-    <div
-      style={{
+    <MyBox
+      sx={{
         height: "calc(100vh - 128px)",
         display: "flex",
         flexDirection: "column",
@@ -91,8 +91,8 @@ const Swap = () => {
           height: "100%",
         }}
       >
-        <div
-          style={{
+        <MyBox
+          sx={{
             display: "flex",
             width: "100%",
             gap: 8,
@@ -143,9 +143,9 @@ const Swap = () => {
               setAmount(e.target.value);
             }}
           />
-        </div>
-        <div
-          style={{
+        </MyBox>
+        <MyBox
+          sx={{
             width: "100%",
             height: "100%",
             border: "1px solid black",
@@ -155,8 +155,8 @@ const Swap = () => {
           {routeData && tokens ? (
             <SwapGraph data={routeData} tokens={tokens} />
           ) : (
-            <div
-              style={{
+            <MyBox
+              sx={{
                 width: "100%",
                 height: "100%",
                 display: "flex",
@@ -165,11 +165,11 @@ const Swap = () => {
               }}
             >
               <CircularProgress color="secondary" />
-            </div>
+            </MyBox>
           )}
-        </div>
+        </MyBox>
       </MyBox>
-    </div>
+    </MyBox>
   );
 };
 

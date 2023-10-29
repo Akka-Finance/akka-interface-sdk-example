@@ -46,7 +46,9 @@ const Spender = () => {
           </Typography>
         ) : (
           <MyBox sx={{ display: "flex", flexDirection: "column" }}>
-            <div>akka contract address for CORE chain: {spenderAddress}</div>
+            <MyBox>
+              akka contract address for CORE chain: {spenderAddress}
+            </MyBox>
             <GetAllowance />
             <GetApproveTransaction />
           </MyBox>

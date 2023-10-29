@@ -56,11 +56,7 @@ const GetApproveTransaction = () => {
           gasPrice: BigInt(data.gasPrice),
         });
       } catch (error: any) {
-        if (error.shortMessage) {
-          toast(error.shortMessage);
-        } else {
-          toast(error.message);
-        }
+        toast(error.shortMessage || error.message);
       }
     }
   };
@@ -158,10 +154,10 @@ const GetApproveTransaction = () => {
           <CircularProgress color="secondary" />
         ) : data ? (
           <>
-            <div>data: {data?.data}</div>
-            <div>gasPrice: {data?.gasPrice}</div>
-            <div>to: {data?.to}</div>
-            <div>value: {data?.value}</div>
+            <MyBox>data: {data?.data}</MyBox>
+            <MyBox>gasPrice: {data?.gasPrice}</MyBox>
+            <MyBox>to: {data?.to}</MyBox>
+            <MyBox>value: {data?.value}</MyBox>
             {isConnected ? (
               <Button
                 variant="contained"
@@ -181,7 +177,7 @@ const GetApproveTransaction = () => {
                   justifyContent: "center",
                 }}
               >
-                <div>Connect wallet first to approve this transaction!</div>
+                <MyBox>Connect wallet first to approve this transaction!</MyBox>
                 <ConnectWalletButtons />
               </MyBox>
             )}
