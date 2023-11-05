@@ -4,6 +4,7 @@ import {
   Button,
   Drawer,
   IconButton,
+  Link,
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -12,6 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import MyDrawer from "./MyDrawer";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../routes";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const drawerWidth = 240;
 
@@ -39,7 +41,10 @@ const Navbar = () => {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", sm: "block" },
+            }}
           >
             <img
               style={{
@@ -49,7 +54,9 @@ const Navbar = () => {
               src="https://www.app.akka.finance/static/media/akka-colorfull1.e14f6961870541109dba75ec1c36da0e.svg"
             />
           </Typography>
-          <MyBox sx={{ display: { xs: "none", sm: "block" } }}>
+          <MyBox
+            sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}
+          >
             {routes.map((route) => (
               <Button
                 key={route.name}
@@ -61,6 +68,14 @@ const Navbar = () => {
                 {route.name}
               </Button>
             ))}
+
+            <Link
+              href="https://github.com/Akka-Finance/akka-interface-sdk-example"
+              color="#000000"
+              sx={{ ml: 2 }}
+            >
+              <GitHubIcon />
+            </Link>
           </MyBox>
         </Toolbar>
       </AppBar>
