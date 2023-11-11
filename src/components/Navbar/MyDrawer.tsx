@@ -6,10 +6,12 @@ import {
   ListItemButton,
   ListItemText,
   Typography,
+  Link,
 } from "@mui/material";
 import { MyBox } from "../MyBox";
 import { MyDrawerProps } from "./types";
 import { useNavigate } from "react-router-dom";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 const Drawer = ({ navItems, handleDrawerToggle }: MyDrawerProps) => {
   const navigate = useNavigate();
@@ -40,6 +42,15 @@ const Drawer = ({ navItems, handleDrawerToggle }: MyDrawerProps) => {
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem disablePadding>
+          <Link
+            href="https://github.com/Akka-Finance/akka-interface-sdk-example"
+            color="#000000"
+            sx={{ mx: "auto" }}
+          >
+            <GitHubIcon />
+          </Link>
+        </ListItem>
       </List>
     </MyBox>
   );
