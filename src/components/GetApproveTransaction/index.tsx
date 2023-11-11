@@ -126,7 +126,14 @@ const GetApproveTransaction = () => {
         loading={loading}
       />
 
-      <MyBox sx={{ display: "flex", alignItems: "stretch", gap: 2 }}>
+      <MyBox
+        sx={{
+          display: "flex",
+          alignItems: "stretch",
+          gap: 2,
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
         <TextField
           label="Amount"
           type="number"
@@ -175,6 +182,7 @@ const GetApproveTransaction = () => {
                   alignItems: "center",
                   gap: 2,
                   justifyContent: "center",
+                  flexDirection: { xs: "column", md: "row" },
                 }}
               >
                 <MyBox>Connect wallet first to approve this transaction!</MyBox>

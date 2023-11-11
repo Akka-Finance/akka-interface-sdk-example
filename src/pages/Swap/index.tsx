@@ -98,8 +98,9 @@ const Swap = () => {
         sx={{
           display: "flex",
           width: "100%",
-          gap: 8,
+          gap: { xs: 1, md: 4 },
           marginBottom: 4,
+          flexDirection: { xs: "column", md: "row" },
         }}
       >
         <Autocomplete
@@ -145,7 +146,15 @@ const Swap = () => {
           }}
         />
       </MyBox>
-      <MyBox sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+      <MyBox
+        sx={{
+          display: "flex",
+          alignItems: "stretch",
+          gap: { xs: 0, md: 2 },
+          textAlign: "center",
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
         <TextField
           size="small"
           value={from}

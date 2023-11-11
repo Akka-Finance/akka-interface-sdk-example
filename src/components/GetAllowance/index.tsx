@@ -108,7 +108,14 @@ const GetAllowance = () => {
         loading={loading}
       />
 
-      <MyBox sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+      <MyBox
+        sx={{
+          display: "flex",
+          alignItems: "stretch",
+          gap: { xs: 0, md: 2 },
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
         <TextField
           value={walletAddress}
           label="Wallet Address"

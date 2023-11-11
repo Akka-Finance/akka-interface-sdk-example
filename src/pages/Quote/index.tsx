@@ -61,7 +61,8 @@ const Swap = () => {
   return (
     <MyBox
       sx={{
-        height: "calc(100vh - 128px)",
+        minHeight: "calc(100vh - 128px)",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
       }}
@@ -89,14 +90,16 @@ const Swap = () => {
           flexDirection: "column",
           width: "100%",
           height: "100%",
+          flexGrow: 1,
         }}
       >
         <MyBox
           sx={{
             display: "flex",
             width: "100%",
-            gap: 8,
+            gap: { xs: 1, md: 4 },
             marginBottom: 4,
+            flexDirection: { xs: "column", md: "row" },
           }}
         >
           <Autocomplete
@@ -138,6 +141,7 @@ const Swap = () => {
           <TextField
             size="small"
             type="number"
+            label="Amount"
             value={amount}
             onChange={(e) => {
               setAmount(e.target.value);
@@ -148,8 +152,12 @@ const Swap = () => {
           sx={{
             width: "100%",
             height: "100%",
+            minHeight: "300px",
             border: "1px solid black",
             position: "relative",
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
           }}
         >
           {routeData && tokens ? (
@@ -162,6 +170,7 @@ const Swap = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                flexGrow: 1,
               }}
             >
               <CircularProgress color="secondary" />
